@@ -432,7 +432,7 @@ nav.nav-hidden{transform:translateY(-110%);opacity:0;pointer-events:none}
   .feedback-form.feedback-form{padding:20px;width:100%;border-radius:14px}
   .fb-row{display:flex;flex-direction:column;gap:12px}
   /* ── BÀI TẬP CÓ LỜI GIẢI – mobile ── */
-  .bt-hero{padding:36px 12px 26px !important;border-radius:0;overflow:visible !important}
+  .bt-hero{padding:80px 12px 26px !important;border-radius:0;overflow:visible !important}
   .bt-hero h1{font-size:22px !important;flex-wrap:wrap;justify-content:center;gap:6px !important;line-height:1.45 !important;padding:6px 4px !important;display:flex !important}
   .bt-hero p{font-size:12px !important;padding:0 6px}
   .bt-icon{width:42px !important;height:42px !important;font-size:22px !important;border-radius:12px !important}
@@ -2281,6 +2281,13 @@ footer{padding:40px 40px 28px;border-top:.5px solid rgba(255,255,255,.06);displa
 </footer>
 </div>
 
+<div class="page" id="page-lesson">
+  <div class="lesson-page-wrap">
+    <div id="lessonPageTitle" class="lesson-page-title"></div>
+    <div id="lessonPageBody" class="lesson-body"></div>
+  </div>
+</div>
+
 <!-- ═══════════ TRANG CÔNG CỤ ═══════════ -->
 <div class="page" id="page-congthu">
   <div class="page-hero">
@@ -3631,10 +3638,10 @@ function openLesson(id){
     const r=parseInt(h.slice(0,2),16),g=parseInt(h.slice(2,4),16),b=parseInt(h.slice(4,6),16);
     return `rgba(${r},${g},${b},.18)`;
   });
-  document.getElementById('lessonTitle').textContent=d.title;
+  document.getElementById('lessonPageTitle').textContent=d.title;
   const styleVars=`--chap-color:${themeColor};--chap-grad:${themeGrad};--chap-grad-soft:${gradSoft};--chap-shadow:${themeShadow};`;
-  document.getElementById('lessonBody').setAttribute('style',styleVars);
-  document.getElementById('lessonBody').innerHTML=`
+  document.getElementById('lessonPageBody').setAttribute('style',styleVars);
+  document.getElementById('lessonPageBody').innerHTML=`
     <div class="lesson-banner" style="background:linear-gradient(135deg,${d.color},${d.color}cc);border:1px solid ${themeColor}55;box-shadow:0 8px 32px -10px ${themeShadow}">
       <span style="font-size:48px;filter:drop-shadow(0 4px 12px ${themeShadow})">${d.icon}</span>
       <div>
@@ -3653,7 +3660,7 @@ function openLesson(id){
         </div>
         <div class="lesson-arrow">→</div>
       </div>`).join('')}`;
-  openModal('lessonModal');
+  showPage('lesson');
 }
 
 function openLecture(chapId,idx){
@@ -3684,7 +3691,7 @@ function openLecture(chapId,idx){
       <p style="font-size:12px;color:rgba(255,255,255,.35);margin-top:6px">Video minh họa trực quan cho bài giảng này. Xem kết hợp với lý thuyết bên dưới.</p>
     </div>`:
     `<div class="lecture-section"><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px;text-align:center;color:var(--muted);font-size:13px">📹 Video đang được cập nhật...</div></div>`;
-  document.getElementById('lessonBody').innerHTML=`
+  document.getElementById('lessonPageBody').innerHTML=`
     <div class="lecture-wrap">
       <div class="lecture-back" onclick="openLesson('${chapId}')">← Quay lại danh sách</div>
       <div class="lecture-title">${c.title}</div>
@@ -3696,17 +3703,15 @@ function openLecture(chapId,idx){
         ${idx<LESSONS[chapId].items.length-1?`<button onclick="openLecture('${chapId}',${idx+1})" style="padding:9px 18px;border-radius:20px;border:none;background:linear-gradient(135deg,#3a6ff7,#6b3ff7);color:#fff;cursor:pointer;font-size:13px">Bài tiếp theo →</button>`:''}
       </div>
     </div>`;
-  // Render KaTeX formulas (retry until library loads)
+  // Make sure detailed lesson is shown on its own page
+  showPage('lesson');
   renderLectureMath();
-  // Scroll modal back to top so user always sees "← Quay lại danh sách"
-  const modal = document.querySelector('#lessonModal .modal');
-  if (modal) modal.scrollTop = 0;
-  const modalBg = document.getElementById('lessonModal');
-  if (modalBg) modalBg.scrollTop = 0;
+  const pageLesson = document.getElementById('page-lesson');
+  if (pageLesson) pageLesson.scrollTop = 0;
 }
 
 function renderLectureMath(){
-  const root = document.getElementById('lessonBody');
+  const root = document.getElementById('lessonPageBody');
   if(!root) return;
   const doRender = ()=>{
     root.querySelectorAll('.formula-math[data-tex]').forEach(el=>{
@@ -6257,7 +6262,7 @@ function showPage(id, opts){
   }
   document.querySelectorAll('.nav-btn').forEach(a=>a.classList.remove('active'));
   // Pages that don't have their own nav button but belong to a parent menu
-  const NAV_PARENT={baitap:'congthu',flashcard:'congthu',ungdung:'congthu',baitap_ai:'congthu',congthuc_v:'congthu',huongdan:'congthu'};
+  const NAV_PARENT={baitap:'congthu',flashcard:'congthu',ungdung:'congthu',baitap_ai:'congthu',congthuc_v:'congthu',huongdan:'congthu',lesson:'baigiang'};
   const navTargetId = document.getElementById('nav-'+id) ? id : (NAV_PARENT[id]||id);
   const navBtn=document.getElementById('nav-'+navTargetId);
   if(navBtn){navBtn.classList.add('active');navBtn.classList.remove('nav-pop');void navBtn.offsetWidth;navBtn.classList.add('nav-pop');setTimeout(()=>navBtn.classList.remove('nav-pop'),650);}
@@ -6269,6 +6274,10 @@ function showPage(id, opts){
       try{ history.pushState({page:id}, '', newHash || location.pathname + location.search); }
       catch(e){ location.hash = newHash; }
     }
+  }
+  if(window.innerWidth <= 768 && (id==='baigiang' || id==='lesson')){
+    const nav = document.querySelector('nav');
+    if(nav) nav.classList.add('nav-hidden');
   }
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -8025,65 +8034,3 @@ window.VLBoard = (function(){
 window.addEventListener('load', function(){
   try { if(typeof initGoogle==='function') initGoogle(); } catch(e){}
 });
-</script>
-
-<style>
-  #community-section { padding: 60px 20px; background: linear-gradient(180deg, rgba(4,15,32,.98), rgba(7,18,42,.98)); border-top: 1px solid rgba(255,255,255,.08); }
-  #community-section .community-header { max-width: 1200px; margin: 0 auto 32px; text-align: center; }
-  #community-section .community-header h2 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 10px; }
-  #community-section .community-header p { color: rgba(255,255,255,.66); font-size: 14px; line-height: 1.8; max-width: 760px; margin: 0 auto; }
-  .community-grid { display: grid; grid-template-columns: repeat(3, minmax(260px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-  .community-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 24px; min-height: 420px; display: flex; flex-direction: column; }
-  .community-card h3 { margin: 0 0 16px; color: #fff; font-size: 18px; }
-  .community-card .card-note { font-size: 13px; color: rgba(255,255,255,.55); margin-bottom: 14px; }
-  .community-card ul { flex: 1; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; overflow: auto; }
-  .community-card li { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 12px; font-size: 13px; }
-  .community-card li strong { color: #fff; }
-  .community-card form { display: grid; gap: 10px; }
-  .community-card input, .community-card textarea, .community-card button { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.16); color: #fff; padding: 12px; outline: none; }
-  .community-card textarea { min-height: 100px; resize: vertical; }
-  .community-card button { background: linear-gradient(135deg, #3a6ff7, #7b5cff); color: #fff; font-weight: 700; cursor: pointer; border: none; }
-  .community-card button:hover { opacity: .95; }
-  @media(max-width:960px) { .community-grid { grid-template-columns: 1fr; } }
-</style>
-
-<section id="community-section">
-  <div class="community-header">
-    <h2>Cộng đồng & Dữ liệu học sinh</h2>
-    <p>Ghi lại lịch sử đóng góp, bảng xếp hạng điểm cao và dữ liệu trò chuyện. Mỗi hành động sẽ gửi tới backend và lưu trên server để xem lại.</p>
-  </div>
-  <div class="community-grid">
-    <div class="community-card" id="leaderboard-panel">
-      <h3>Bảng xếp hạng</h3>
-      <p class="card-note">Nhập tên và điểm để cập nhật bảng xếp hạng học sinh.</p>
-      <form id="leaderboard-form">
-        <input type="text" id="leaderboard-name" placeholder="Tên học sinh" required>
-        <input type="number" id="leaderboard-score" placeholder="Điểm" min="0" required>
-        <button type="submit">Gửi điểm</button>
-      </form>
-      <ul id="leaderboard-list"></ul>
-    </div>
-    <div class="community-card" id="chat-panel">
-      <h3>Trò chuyện</h3>
-      <p class="card-note">Gửi tin nhắn chat và xem lại lịch sử trò chuyện của học sinh.</p>
-      <form id="chat-form">
-        <input type="text" id="chat-name" placeholder="Tên học sinh" required>
-        <textarea id="chat-message" placeholder="Tin nhắn..." required></textarea>
-        <button type="submit">Gửi chat</button>
-      </form>
-      <ul id="chat-list"></ul>
-    </div>
-    <div class="community-card" id="history-panel">
-      <h3>Lịch sử đóng góp</h3>
-      <p class="card-note">Ghi lại đóng góp của học sinh khi làm bài hoặc nhận xét.</p>
-      <form id="history-form">
-        <input type="text" id="history-name" placeholder="Tên học sinh" required>
-        <input type="text" id="history-contribution" placeholder="Nội dung đóng góp" required>
-        <button type="submit">Lưu đóng góp</button>
-      </form>
-      <ul id="history-list"></ul>
-    </div>
-  </div>
-</section>
-
-<script src="client-backend.js"></script>
