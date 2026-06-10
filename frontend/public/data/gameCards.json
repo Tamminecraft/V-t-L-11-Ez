@@ -1,0 +1,8 @@
+[
+  { "id": "treasure", "title": "Tìm Kho Báu Vật Lý", "description": "Giải bài tập để mở khóa bí mật và hành trình phiêu lưu.", "tag": "Phiêu lưu", "icon": "🗺️" },
+  { "id": "quiz", "title": "Đố Vui Vật Lý 11", "description": "10 câu quiz về DAO ĐỘNG, SÓNG, ĐIỆN TRƯỜNG và DÒNG ĐIỆN.", "tag": "Quiz nhanh", "icon": "🧠", "route": "/quiz" },
+  { "id": "match", "title": "Ghép Đôi Công Thức", "description": "Nối công thức VL11 với tên định luật tương ứng.", "tag": "Trí nhớ", "icon": "🎯" },
+  { "id": "speed", "title": "Đua Giải Toán VL11", "description": "Giải bài toán nhanh trong 30s — thách thức tốc độ.", "tag": "Thi đua", "icon": "⏱️" },
+  { "id": "explore", "title": "Khám Phá Sóng & Dao Động", "description": "Câu đố hình ảnh về hiện tượng sóng và dao động.", "tag": "Khám phá", "icon": "🌊" },
+  { "id": "daily", "title": "Câu Đố Hằng Ngày", "description": "Bài tập mới mỗi ngày giúp duy trì thói quen học.", "tag": "Hằng ngày", "icon": "💡" }
+]

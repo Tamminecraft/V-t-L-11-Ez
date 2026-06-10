@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Bài Tập Có Lời Giải",
+    "description": "Bài tập tự luận và trắc nghiệm, giải từng bước theo cấu trúc đề thi.",
+    "color": "#fbbf24",
+    "route": "/quiz",
+    "icon": "✏️"
+  },
+  {
+    "title": "Flashcard Công Thức",
+    "description": "Ôn tập nhanh các công thức trọng tâm VL11 theo spaced repetition.",
+    "color": "#f472b6",
+    "route": "/flashcards",
+    "icon": "🃏"
+  },
+  {
+    "title": "Gia sư AI",
+    "description": "Giải bài tập, hỏi lý thuyết và gợi ý từng bước bằng AI.",
+    "color": "#a855f7",
+    "route": "/ai",
+    "icon": "🤖"
+  },
+  {
+    "title": "Phòng Thí Nghiệm Ảo",
+    "description": "Kéo thả linh kiện và quan sát mạch điện, dao động, sóng minh họa.",
+    "color": "#22d3ee",
+    "route": "/lab",
+    "icon": "🔬"
+  }
+]

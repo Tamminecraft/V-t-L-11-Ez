@@ -1,0 +1,12 @@
+[
+  { "front": "Công thức động năng", "back": "W = ½mv²" },
+  { "front": "Định luật Coulomb", "back": "F = k \frac{q_1 q_2}{r^2}" },
+  { "front": "Tần số góc", "back": "ω = 2πf" },
+  { "front": "Chu kỳ con lắc đơn", "back": "T = 2π\sqrt{\frac{L}{g}}" },
+  { "front": "Vận tốc sóng", "back": "v = λ f" },
+  { "front": "Định luật Ohm", "back": "I = \frac{U}{R}" },
+  { "front": "Công suất điện", "back": "P = UI = I^2 R = \frac{U^2}{R}" },
+  { "front": "Điện dung tụ", "back": "C = \frac{ε_0 ε_r S}{d}" },
+  { "front": "Dao động điều hòa", "back": "x = A \cos(ωt + φ)" },
+  { "front": "Cơ năng dao động điều hòa", "back": "W = ½kA² = ½mω²A²" }
+]

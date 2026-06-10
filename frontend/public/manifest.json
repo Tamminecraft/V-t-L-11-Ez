@@ -1,0 +1,16 @@
+{
+  "name": "Vật Lý 11 Ez",
+  "short_name": "VL11 Ez",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050a14",
+  "theme_color": "#3a6ff7",
+  "description": "Nền tảng học Vật Lý 11 tương tác với quiz, AI, flashcard, mô phỏng và lộ trình học cá nhân.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

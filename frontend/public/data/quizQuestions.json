@@ -1,0 +1,12 @@
+[
+  { "q": "Phương trình dao động điều hòa là?", "opts": ["x = A·sin(ωt)", "x = A·cos(ωt + φ)", "x = A·cos(ωt)·e^(-t)", "x = v·t"], "ans": 1, "ex": "x = A·cos(ωt + φ) là dạng tổng quát. A là biên độ, ω là tần số góc, φ là pha ban đầu." },
+  { "q": "Chu kỳ con lắc đơn T phụ thuộc chủ yếu vào?", "opts": ["Khối lượng vật", "Biên độ dao động", "Chiều dài dây và g", "Vật liệu làm dây"], "ans": 2, "ex": "T = 2π√(L/g). Chu kỳ chỉ phụ thuộc chiều dài L và gia tốc g, không phụ thuộc khối lượng hay biên độ." },
+  { "q": "Trong sóng cơ, v = λ·f có nghĩa là?", "opts": ["Vận tốc = bước sóng / tần số", "Vận tốc = bước sóng × tần số", "Vận tốc = tần số / bước sóng", "Vận tốc = biên độ × tần số"], "ans": 1, "ex": "v = λ·f: vận tốc truyền sóng bằng tích bước sóng và tần số." },
+  { "q": "Điều kiện giao thoa sóng tăng cường là?", "opts": ["Δd = (2k+1)λ/2", "Δd = kλ", "Δd = kλ/4", "Δd = (k+1)λ"], "ans": 1, "ex": "Tăng cường khi đường đi hiệu Δd = kλ với k nguyên." },
+  { "q": "Định luật Coulomb: lực điện tỉ lệ nghịch với?", "opts": ["Tích hai điện tích", "Bình phương khoảng cách", "Hằng số điện môi", "Điện trường"], "ans": 1, "ex": "F = k|q₁q₂|/r². Lực tỉ lệ nghịch với bình phương khoảng cách." },
+  { "q": "Cường độ điện trường E có đơn vị là?", "opts": ["Coulomb (C)", "Newton (N)", "Volt/mét (V/m)", "Farad (F)"], "ans": 2, "ex": "E = F/q, đơn vị N/C = V/m." },
+  { "q": "Định luật Ohm: I = U/R. Điện trở R đo bằng đơn vị gì?", "opts": ["Volt (V)", "Ampere (A)", "Watt (W)", "Ohm (Ω)"], "ans": 3, "ex": "R đo bằng Ohm (Ω)." },
+  { "q": "Công suất điện P = U·I. Đơn vị là?", "opts": ["Joule (J)", "Watt (W)", "Volt (V)", "Farad (F)"], "ans": 1, "ex": "P = U·I, đơn vị Watt (W). 1W = 1V·1A." },
+  { "q": "Sóng dừng trên dây hai đầu cố định điều kiện là?", "opts": ["L = (2k-1)λ/4", "L = kλ/2", "L = kλ", "L = (2k+1)λ/2"], "ans": 1, "ex": "Dây hai đầu cố định: L = kλ/2 với k là số nguyên." },
+  { "q": "Cơ năng dao động điều hòa W = ½mω²A². W thay đổi thế nào khi biên độ tăng gấp đôi?", "opts": ["Tăng gấp đôi", "Tăng gấp 4 lần", "Tăng gấp 8 lần", "Không đổi"], "ans": 1, "ex": "W ∝ A². Biên độ gấp đôi → W gấp 4 lần." }
+]

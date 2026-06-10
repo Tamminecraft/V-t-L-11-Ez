@@ -1,0 +1,30 @@
+[
+  {
+    "id": "dao-dong",
+    "name": "Dao Động",
+    "description": "Dao động điều hòa · Năng lượng · Cộng hưởng",
+    "articles": 4,
+    "image": "https://genk.mediacdn.vn/thumb_w/640/2017/elyaplghyoaitxurybgu-1507194755879.gif"
+  },
+  {
+    "id": "song",
+    "name": "Sóng",
+    "description": "Sóng cơ · Sóng điện từ · Giao thoa · Sóng dừng",
+    "articles": 6,
+    "image": "https://olm.vn/images/summary/UnknownPointlessDunnart-max-1mb.gif"
+  },
+  {
+    "id": "dien-truong",
+    "name": "Điện Trường",
+    "description": "Coulomb · Điện thế · Tụ điện · Năng lượng",
+    "articles": 5,
+    "image": "https://hoc24.vn/images/summary/34178289965_4c1297a869_o.gif"
+  },
+  {
+    "id": "dong-dien",
+    "name": "Dòng Điện Không Đổi",
+    "description": "Ohm · Điện trở · Nguồn · Công suất",
+    "articles": 5,
+    "image": "https://prodigits.co.uk/pthumbs/screensavers/down/technology/electricit_lvm5wt2i.gif"
+  }
+]

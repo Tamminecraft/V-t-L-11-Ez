@@ -1,0 +1,9 @@
+[
+  { "id": "pendulum", "title": "Con lắc đơn — Dao động", "description": "Biên độ · Chu kỳ · Tần số góc", "badge": "Chương 1" },
+  { "id": "wave", "title": "Giao thoa sóng", "description": "Vân tăng cường · Vân triệt tiêu · Biên độ", "badge": "Chương 2" },
+  { "id": "emwave", "title": "Sóng điện từ", "description": "Điện trường E · Từ trường B · Lan truyền", "badge": "Chương 2" },
+  { "id": "standingwave", "title": "Sóng dừng", "description": "Nút sóng · Bụng sóng · Tần số cộng hưởng", "badge": "Chương 2" },
+  { "id": "efield", "title": "Điện trường", "description": "Đường sức · Coulomb · Cường độ E", "badge": "Chương 3" },
+  { "id": "capacitor", "title": "Tụ điện", "description": "Điện dung C · Nạp/xả · Năng lượng", "badge": "Chương 3" },
+  { "id": "circuit", "title": "Mạch điện không đổi", "description": "I=ξ/(R+r) · Công suất P=UI", "badge": "Chương 4" }
+]
