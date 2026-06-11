@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Vật Lý 11 Ez
 
 Đã tạo lại frontend thành React/Vite với cấu trúc route riêng cho:
@@ -42,3 +43,6 @@ npm start
 ```
 
 4. Mở `http://localhost:8787` nếu đã build frontend hoặc sử dụng `npm run dev` trong `frontend` để chạy dev server.
+=======
+# V-t-L-11-Ez
+>>>>>>> e677771a416beb47db0bfb291b0ea12a938355b0
