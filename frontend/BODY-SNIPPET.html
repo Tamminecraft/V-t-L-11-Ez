@@ -1,0 +1,41 @@
+<!-- ============================================================
+     PASTE đoạn này NGAY TRƯỚC </body>
+     ============================================================ -->
+
+<!-- Nút Back-to-top -->
+<button id="vlBackTop" aria-label="Lên đầu trang" title="Lên đầu trang">↑</button>
+
+<!-- Ô tìm kiếm toàn trang (mở bằng Ctrl/Cmd + K) -->
+<div id="vlSearchBox" role="dialog" aria-modal="true" hidden>
+  <div class="vl-search-inner">
+    <input id="vlSearchInput" type="search" placeholder="Tìm bài giảng, công thức, công cụ... (Esc để đóng)" autocomplete="off">
+    <ul id="vlSearchResults"></ul>
+  </div>
+</div>
+
+<!-- Banner cài app PWA -->
+<div id="vlInstallBanner" hidden>
+  📱 Cài Vật Lý 11 Ez lên màn hình chính
+  <button id="vlInstallBtn">Cài đặt</button>
+  <button id="vlInstallClose" aria-label="Đóng">✕</button>
+</div>
+
+<!-- Modal Điều khoản / Bảo mật -->
+<div id="vlLegalModal" class="vl-legal-modal" hidden>
+  <div class="vl-legal-inner">
+    <button class="vl-legal-close" onclick="document.getElementById('vlLegalModal').hidden=true">✕</button>
+    <div id="vlLegalContent"></div>
+  </div>
+</div>
+
+<!-- Script bổ sung -->
+<script src="/vatlihub-ai-plus.js" defer></script>
+
+<!-- Đăng ký Service Worker -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
